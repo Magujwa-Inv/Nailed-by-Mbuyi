@@ -594,6 +594,77 @@
     }
     }
 
+  
+    .service-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.8rem;
+    }
+
+    .service-gallery-card {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.62);
+      box-shadow: 0 18px 40px rgba(16, 10, 10, 0.10);
+      border: 1px solid rgba(23, 19, 19, 0.06);
+    }
+
+    .service-gallery-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-gallery-copy {
+      padding: 1rem 1rem 1.15rem;
+      background: rgba(255,255,255,0.84);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .service-gallery-copy h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      line-height: 1.05;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    .service-gallery-copy p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .service-price-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(91,31,46,0.10);
+      color: var(--wine);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .service-gallery-card img {
+        height: 300px;
+      }
+
+      .service-gallery-copy h3 {
+        font-size: 1.35rem;
+      }
+    }
+
   </style>
 
   <style id="final-polish-override">
@@ -1183,43 +1254,81 @@
 
 
 
+    
     <section class="section" id="services">
       <div class="container">
         <div class="section-heading">
           <p class="section-tag">Services</p>
-          <h2>Choose the set. Keep the <em>energy</em>.</h2>
+          <h2>Our service menu in <em>full view</em>.</h2>
         </div>
 
-        <div class="service-list">
-          <article class="service-item">
-            <div>
-              <h3>Rubberbase Overlay</h3>
-              <p>Structured natural nail enhancement with a clean, polished finish.</p>
+        <div class="service-gallery-grid">
+          <article class="service-gallery-card">
+            <img src="assets/services/gel-overlay-e200.jpeg" alt="Gel overlay E200" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E200</span>
+              <h3>Gel overlay</h3>
+              <p>Gel overlay · E200</p>
             </div>
-            <div class="service-meta"><div class="service-duration">1h 20m</div></div>
-            <div class="service-price">E250</div>
           </article>
 
-          <article class="service-item">
-            <div>
-              <h3>Short Set + Art</h3>
-              <p>Short sculpted set with detail that still feels tasteful and elevated.</p>
+          <article class="service-gallery-card">
+            <img src="assets/services/buff-and-shine-e150.jpeg" alt="Buff and shine E150" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E150</span>
+              <h3>Buff and shine</h3>
+              <p>Buff and shine · E150</p>
             </div>
-            <div class="service-meta"><div class="service-duration">3h</div></div>
-            <div class="service-price">From E380</div>
           </article>
 
-          <article class="service-item">
-            <div>
-              <h3>Long Set + Art</h3>
-              <p>Impactful length with premium finish and statement detail.</p>
+          <article class="service-gallery-card">
+            <img src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase + colour E250" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E250</span>
+              <h3>Rubberbase + colour</h3>
+              <p>Rubberbase + colour · E250</p>
             </div>
-            <div class="service-meta"><div class="service-duration">4h</div></div>
-            <div class="service-price">From E450</div>
+          </article>
+
+          <article class="service-gallery-card">
+            <img src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase colour + medium art E270" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E270</span>
+              <h3>Rubberbase colour + medium art</h3>
+              <p>Rubberbase colour + medium art · E270</p>
+            </div>
+          </article>
+
+          <article class="service-gallery-card">
+            <img src="assets/services/rubberbase-colour-advanced-art-e290.jpeg" alt="Rubberbase colour + advanced art E290" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E290</span>
+              <h3>Rubberbase colour + advanced art</h3>
+              <p>Rubberbase colour + advanced art · E290</p>
+            </div>
+          </article>
+
+          <article class="service-gallery-card">
+            <img src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E290" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E290</span>
+              <h3>Advanced nail art</h3>
+              <p>Advanced nail art · E290</p>
+            </div>
+          </article>
+
+          <article class="service-gallery-card">
+            <img src="assets/services/mini-manicure-kids-e80-e120.jpeg" alt="Mini Manicure Kids E80-E120" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E80–E120</span>
+              <h3>Mini Manicure (Kids)</h3>
+              <p>Mini Manicure (Kids) · E80–E120</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
+
 
     <section class="section" id="booking">
       <div class="container booking-shell">
