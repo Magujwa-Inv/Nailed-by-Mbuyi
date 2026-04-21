@@ -662,6 +662,44 @@
 
 
 
+
+
+
+
+<style id="services-mobile-sideways-fix">
+@media (max-width: 768px) {
+  .service-gallery-grid {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 82% !important;
+    grid-template-columns: none !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0 20px 8px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .service-gallery-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .service-gallery-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: start !important;
+  }
+
+  .service-gallery-card img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+    object-fit: cover !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="site-header" id="top">
