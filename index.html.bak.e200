@@ -756,7 +756,7 @@ a, button {
 
           <div class="featured-grid" id="featuredGrid">
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/featured/set-1.jpeg" alt="Featured set 1" />
+              <img src="assets/featured/set-1.jpeg" alt="Featured set 1" />
               <div class="featured-content">
                 <p class="featured-meta">Pedicure</p>
                 <h3>Clean detail with polished structure</h3>
@@ -764,7 +764,7 @@ a, button {
             </article>
 
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/featured/set-2.jpeg" alt="Featured set 2" />
+              <img src="assets/featured/set-2.jpeg" alt="Featured set 2" />
               <div class="featured-content">
                 <p class="featured-meta">Manicure</p>
                 <h3>Refined finish with soft luxury</h3>
@@ -772,7 +772,7 @@ a, button {
             </article>
 
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/featured/set-3.jpeg" alt="Featured set 3" />
+              <img src="assets/featured/set-3.jpeg" alt="Featured set 3" />
               <div class="featured-content">
                 <p class="featured-meta">Pedicure</p>
                 <h3>Fresh, elegant, and beautifully finished</h3>
@@ -780,7 +780,7 @@ a, button {
             </article>
 
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/gallery/emojis.jpeg" alt="Emoji set" />
+              <img src="assets/gallery/emojis.jpeg" alt="Emoji set" />
               <div class="featured-content">
                 <p class="featured-meta">Playful detail</p>
                 <h3>Fun expression with a premium touch</h3>
@@ -802,7 +802,7 @@ a, button {
 
         <div class="service-gallery-grid">
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/gel-overlay-e200.jpg" alt="Gel overlay" />
+            <img src="assets/services/gel-overlay-e200.jpg" alt="Gel overlay" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E200</span>
               <h3>Gel overlay</h3>
@@ -810,7 +810,7 @@ a, button {
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/buff-and-shine-e150.jpeg" alt="Buff and shine E150" />
+            <img src="assets/services/buff-and-shine-e150.jpeg" alt="Buff and shine E150" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E150</span>
               <h3>Buff and shine</h3>
@@ -818,7 +818,7 @@ a, button {
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase + colour E250" />
+            <img src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase + colour E250" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E250</span>
               <h3>Rubberbase + colour</h3>
@@ -826,7 +826,7 @@ a, button {
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase colour + medium art E270" />
+            <img src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase colour + medium art E270" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E270</span>
               <h3>Rubberbase colour + medium art</h3>
@@ -834,7 +834,7 @@ a, button {
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-advanced-art-e290.jpeg" alt="Rubberbase colour + advanced art E290" />
+            <img src="assets/services/rubberbase-colour-advanced-art-e290.jpeg" alt="Rubberbase colour + advanced art E290" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E290</span>
               <h3>Rubberbase colour + advanced art</h3>
@@ -842,7 +842,7 @@ a, button {
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E290" />
+            <img src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E290" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E290</span>
               <h3>Advanced nail art</h3>
@@ -850,7 +850,7 @@ a, button {
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/mini-manicure-kids-e80-e120.jpeg" alt="Mini Manicure Kids E80-E120" />
+            <img src="assets/services/mini-manicure-kids-e80-e120.jpeg" alt="Mini Manicure Kids E80-E120" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E80–E120</span>
               <h3>Mini Manicure (Kids)</h3>
