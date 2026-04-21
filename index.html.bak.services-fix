@@ -393,7 +393,7 @@
 
     .service-gallery-card img {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      height: 360px;
       object-fit: cover;
     }
 
@@ -801,11 +801,17 @@ a, button {
         </div>
 
         <div class="service-gallery-grid">
-          <article class="service-gallery-card">
-            <img src="assets/hero/hero-nails.jpg" alt="Gel overlay" />
-            <div class="service-gallery-copy">
-              <span class="service-price-tag">E200</span>
-              <h3>Gel overlay</h3>
+
+  <article class="service-gallery-card">
+    <img src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E290" />
+
+    <div class="service-gallery-copy">
+      <span class="service-price-tag">E290</span>
+      <h3>Advanced nail art</h3>
+      <p>Detailed, custom-designed sets crafted with precision and premium finishes.</p>
+    </div>
+  </article>
+
 </div>
           </article>
 
