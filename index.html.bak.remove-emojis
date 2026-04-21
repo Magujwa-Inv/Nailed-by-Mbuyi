@@ -660,7 +660,33 @@
 
 </style>
 
+<style>
+/* FORCE SMALL HERO BUTTON */
+a, button {
+  transform: scale(0.8) !important;
+}
 
+a[href*="sets"], a:has(span:contains("View")) {
+  font-size: 13px !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  width: auto !important;
+  max-width: fit-content !important;
+}
+
+/* cleaner look */
+a, button {
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* mobile tighter */
+@media (max-width: 768px) {
+  a, button {
+    transform: scale(0.75) !important;
+  }
+}
+</style>
 
 </head>
 <body>
@@ -753,7 +779,7 @@
               </div>
             </article>
 
-          </div>
+            c
 
           <button class="featured-arrow featured-arrow-right" type="button" aria-label="Scroll featured sets right" onclick="scrollFeatured(1)">›</button>
         </div>
@@ -785,7 +811,7 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase + colour E250" />
+            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase + colour E250" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E250</span>
               <h3>Rubberbase + colour</h3>
@@ -793,13 +819,20 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase colour + medium art E270" />
+            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase colour + medium art E270" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E270</span>
               <h3>Rubberbase colour + medium art</h3>
             </div>
           </article>
 
+          <article class="service-gallery-card">
+            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-advanced-art-e290.jpeg" alt="Rubberbase colour + advanced art E290" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E290</span>
+              <h3>Rubberbase colour + advanced art</h3>
+            </div>
+          </article>
 
           <article class="service-gallery-card">
             <img loading="lazy" decoding="async" src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E290" />
@@ -958,10 +991,143 @@
     }
   </script>
 
+<script>
+setInterval(() => {
+  fetch(window.location.href, { cache: "no-store" })
+    .then(() => window.location.reload());
+}, 4000);
+</script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const all = [...document.querySelectorAll("body *")];
 
+  const findText = (text) =>
+    all.find(el => (el.textContent || "").trim() === text);
 
+  const findIncludes = (text) =>
+    all.find(el => (el.textContent || "").includes(text));
+
+  const heading = findText("Book appointment");
+  const viewSets = findText("View sets");
+  const moodLabel = findText("CURRENT MOOD");
+  const luxuryLabel = findIncludes("LUXURY NAIL CARE");
+
+  if (!heading) return;
+
+  const moodCard = moodLabel ? moodLabel.closest("div") : null;
+
+  const findHero = () => {
+    let node = heading;
+    while (node && node !== document.body) {
+      if (
+        node.querySelector &&
+        node.querySelector("*") &&
+        node.textContent.includes("Book appointment")
+      ) {
+        if (
+          (!moodCard || node.contains(moodCard)) &&
+          (!viewSets || node.contains(viewSets))
+        ) {
+          return node;
+        }
+      }
+      node = node.parentElement;
+    }
+    return heading.parentElement;
+  };
+
+  const hero = findHero();
+  const leftWrap = heading.parentElement;
+  const viewWrap = viewSets ? viewSets.parentElement : null;
+
+  function applyHeroFix() {
+    const mobile = window.innerWidth <= 768;
+    const tiny = window.innerWidth <= 480;
+
+    document.body.style.overflowX = "hidden";
+
+    if (hero) {
+      hero.style.padding = mobile ? "88px 20px 40px" : "120px 32px 72px";
+      hero.style.minHeight = mobile ? "78vh" : "92vh";
+      hero.style.display = "flex";
+      hero.style.alignItems = mobile ? "flex-end" : "center";
+    }
+
+    if (leftWrap) {
+      leftWrap.style.maxWidth = mobile ? "100%" : "640px";
+      leftWrap.style.width = mobile ? "100%" : "auto";
+      leftWrap.style.display = "flex";
+      leftWrap.style.flexDirection = "column";
+      leftWrap.style.gap = mobile ? "14px" : "18px";
+    }
+
+    heading.style.margin = "0";
+    heading.style.display = "inline-block";
+    heading.style.width = mobile ? "100%" : "auto";
+    heading.style.maxWidth = mobile ? "100%" : "620px";
+    heading.style.padding = mobile ? "18px 22px" : "22px 28px";
+    heading.style.borderRadius = mobile ? "28px" : "42px";
+    heading.style.fontSize = tiny ? "3.3rem" : (mobile ? "4.4rem" : "6.2rem");
+    heading.style.lineHeight = mobile ? "0.9" : "0.88";
+    heading.style.letterSpacing = "-0.04em";
+    heading.style.background = "rgba(231, 195, 205, 0.95)";
+    heading.style.color = "#1e0f13";
+    heading.style.boxShadow = "0 16px 40px rgba(0,0,0,0.12)";
+
+    if (luxuryLabel) {
+      luxuryLabel.style.fontSize = mobile ? "0.78rem" : "0.9rem";
+      luxuryLabel.style.letterSpacing = "0.18em";
+      luxuryLabel.style.marginBottom = mobile ? "10px" : "16px";
+    }
+
+    if (viewSets) {
+      viewSets.style.display = "inline-flex";
+      viewSets.style.alignItems = "center";
+      viewSets.style.justifyContent = "center";
+      viewSets.style.padding = mobile ? "14px 22px" : "16px 28px";
+      viewSets.style.fontSize = tiny ? "1.1rem" : (mobile ? "1.25rem" : "1.5rem");
+      viewSets.style.lineHeight = "1.1";
+      viewSets.style.whiteSpace = "nowrap";
+      viewSets.style.borderRadius = "999px";
+      viewSets.style.background = "rgba(255,255,255,0.12)";
+      viewSets.style.backdropFilter = "blur(10px)";
+      viewSets.style.border = "1px solid rgba(255,255,255,0.22)";
+      viewSets.style.color = "#fff";
+      viewSets.style.width = "fit-content";
+      viewSets.style.maxWidth = "100%";
+      viewSets.style.boxShadow = "0 10px 30px rgba(0,0,0,0.18)";
+    }
+
+    if (viewWrap) {
+      viewWrap.style.width = "fit-content";
+      viewWrap.style.maxWidth = "100%";
+    }
+
+    if (moodCard) {
+      moodCard.style.position = mobile ? "static" : moodCard.style.position;
+      moodCard.style.marginTop = mobile ? "18px" : "0";
+      moodCard.style.marginLeft = mobile ? "0" : moodCard.style.marginLeft;
+      moodCard.style.width = mobile ? "100%" : "min(360px, 32vw)";
+      moodCard.style.maxWidth = mobile ? "100%" : "360px";
+      moodCard.style.padding = mobile ? "18px 18px 16px" : "24px";
+      moodCard.style.borderRadius = mobile ? "22px" : "28px";
+      moodCard.style.background = "rgba(126, 93, 82, 0.62)";
+      moodCard.style.backdropFilter = "blur(12px)";
+      moodCard.style.border = "1px solid rgba(255,255,255,0.14)";
+      moodCard.style.boxShadow = "0 16px 40px rgba(0,0,0,0.22)";
+    }
+
+    if (mobile && moodCard && hero && !leftWrap.contains(moodCard)) {
+      leftWrap.appendChild(moodCard);
+    }
+  }
+
+  applyHeroFix();
+  window.addEventListener("resize", applyHeroFix);
+});
+</script>
 
 </body>
 </html>
