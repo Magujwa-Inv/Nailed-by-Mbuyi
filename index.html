@@ -666,36 +666,30 @@
 
 
 
-<style id="services-mobile-sideways-fix">
+
+
+
+<style id="services-safe-mobile-layout">
 @media (max-width: 768px) {
   .service-gallery-grid {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: 82% !important;
-    grid-template-columns: none !important;
-    gap: 16px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    padding: 0 20px 8px !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-
-  .service-gallery-grid::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .service-gallery-card {
-    width: 100% !important;
-    min-width: 0 !important;
-    scroll-snap-align: start !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
   }
 
   .service-gallery-card img {
-    width: 100% !important;
     height: auto !important;
     aspect-ratio: 3 / 4 !important;
-    object-fit: cover !important;
+  }
+
+  .service-gallery-copy h3 {
+    font-size: 1.2rem !important;
+    line-height: 1.05 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-gallery-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 </style>
@@ -724,14 +718,7 @@
 
       <div class="hero-overlay container">
         <div class="hero-copy">
-          
-          <h1>
-          </p>
-          <div class="hero-buttons">
-            
-            
-          </div>
-        </div>
+</div>
 
         <div class="hero-side-card">
           <p class="side-label">Current mood</p>
@@ -825,7 +812,7 @@
           <article class="service-gallery-card">
             <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase + colour E250" />
             <div class="service-gallery-copy">
-              <span class="service-price-tag">E250</span>
+              <span class="service-price-tag">E150</span>
               <h3>Rubberbase + colour</h3>
             </div>
           </article>
@@ -838,7 +825,6 @@
             </div>
           </article>
 
-
           <article class="service-gallery-card">
             <img loading="lazy" decoding="async" src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E290" />
             <div class="service-gallery-copy">
@@ -848,10 +834,26 @@
           </article>
 
           <article class="service-gallery-card">
+            <img loading="lazy" decoding="async" src="assets/services/gel-tips-e250.jpg" alt="Gel+Tips E250" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E250</span>
+              <h3>Gel+Tips</h3>
+            </div>
+          </article>
+
+          <article class="service-gallery-card">
             <img loading="lazy" decoding="async" src="assets/services/mini-manicure-kids-e80-e120.jpeg" alt="Mini Manicure Kids E80-E120" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E80–E120</span>
               <h3>Mini Manicure (Kids)</h3>
+            </div>
+          </article>
+
+          <article class="service-gallery-card">
+            <img loading="lazy" decoding="async" src="assets/services/pedicure-plain-e150.jpg" alt="Pedicure (plain) E150" />
+            <div class="service-gallery-copy">
+              <span class="service-price-tag">E150</span>
+              <h3>Pedicure (plain)</h3>
             </div>
           </article>
         </div>
