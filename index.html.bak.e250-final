@@ -773,7 +773,7 @@
             <article class="featured-card">
               <img loading="lazy" decoding="async" src="assets/featured/set-3.jpeg" alt="Featured set 3" />
               <div class="featured-content">
-                <p class="featured-meta">Manicure</p>
+                <p class="featured-meta">Pedicure</p>
                 <h3>Fresh, elegant, and beautifully finished</h3>
               </div>
             </article>
@@ -804,21 +804,21 @@
           <article class="service-gallery-card">
             <img loading="lazy" decoding="async" src="assets/services/buff-and-shine-e150.jpeg" alt="Buff and shine E150" />
             <div class="service-gallery-copy">
-              <span class="service-price-tag">E250</span>
+              <span class="service-price-tag">E150</span>
               <h3>Buff and shine</h3>
             </div>
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase + colour E250" />
+            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase + colour E250" />
             <div class="service-gallery-copy">
-              <span class="service-price-tag">E250</span>
+              <span class="service-price-tag">E150</span>
               <h3>Rubberbase + colour</h3>
             </div>
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase colour + medium art E270" />
+            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase colour + medium art E270" />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E270</span>
               <h3>Rubberbase colour + medium art</h3>
