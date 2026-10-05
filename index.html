@@ -1324,8 +1324,9 @@
             font-size: .92rem;
           }
 
-          #nbm-booking-form input,
-          #nbm-booking-form select {
+         #nbm-booking-form input,
+#nbm-booking-form select,
+#nbm-booking-form textarea {
             box-sizing: border-box;
             width: 100%;
             min-width: 0;
@@ -1338,9 +1339,9 @@
             font: inherit;
             font-size: 16px;
           }
-
-          #nbm-booking-form input:focus,
-          #nbm-booking-form select:focus {
+#nbm-booking-form input:focus,
+#nbm-booking-form select:focus,
+#nbm-booking-form textarea:focus {
             outline: 2px solid var(--wine, #5b1f2e);
             outline-offset: 2px;
           }
@@ -1420,6 +1421,16 @@
   <select id="nbm-time" name="time" required>
     <option value="" disabled selected>Choose a time slot</option>
   </select>
+</div>
+          <div class="nbm-field">
+  <label for="nbm-details">Specify type of service needed</label>
+  <textarea
+    id="nbm-details"
+    name="details"
+    rows="4"
+    maxlength="1000"
+    placeholder="Describe your preferred design, nail length, colour or any extras."
+  ></textarea>
 </div>
           <button type="submit" class="btn btn-primary">
             Book Appointment
@@ -1573,6 +1584,7 @@ if (!form.reportValidity()) return;
             `Email: ${data.get("email")}`,
             `Phone: ${data.get("phone")}`,
             `Service: ${data.get("service")}`,
+            `Service details: ${String(data.get("details") || "").trim() || "Not specified"}`,
             `Preferred date: ${data.get("date")}`,
             `Preferred time: ${data.get("time")} (Eswatini time)`,
             "",
