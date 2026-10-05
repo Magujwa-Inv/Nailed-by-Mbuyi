@@ -7,21 +7,18 @@
   <meta name="description" content="Nailed by Mbuyi — luxury nail care in Mbabane, Opposite Eswatini Railway." />
   <title>Nailed by Mbuyi — Nail Care</title>
 
-  <!-- Open Graph (WhatsApp Preview) -->
   <meta property="og:title" content="Nailed by Mbuyi — Luxury Nail Care" />
   <meta property="og:description" content="Luxury nail care in Mbabane. Clean, refined, editorial nail care." />
   <meta property="og:image" content="https://www.nailedbymbuyi.art/assets/hero/hero-nails.jpg" />
   <meta property="og:url" content="https://www.nailedbymbuyi.art/" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter fallback -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Nailed by Mbuyi — Nail Care" />
   <meta name="twitter:description" content="Luxury nail care in Mbabane." />
   <meta name="twitter:image" content="https://www.nailedbymbuyi.art/assets/hero/hero-nails.jpg" />
 
   <link rel="icon" href="data:," />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -39,8 +36,16 @@
       --container: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Inter", sans-serif;
       color: var(--ink);
@@ -53,9 +58,22 @@
       text-rendering: optimizeLegibility;
     }
 
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea, select { font: inherit; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
 
     .container {
       width: min(var(--container), calc(100% - 2rem));
@@ -303,7 +321,9 @@
       padding: 0 1.25rem 0.5rem;
     }
 
-    .featured-grid::-webkit-scrollbar { display: none; }
+    .featured-grid::-webkit-scrollbar {
+      display: none;
+    }
 
     .featured-card {
       flex: 0 0 32vw;
@@ -361,8 +381,13 @@
       -webkit-backdrop-filter: blur(10px);
     }
 
-    .featured-arrow-left { left: 10px; }
-    .featured-arrow-right { right: 10px; }
+    .featured-arrow-left {
+      left: 10px;
+    }
+
+    .featured-arrow-right {
+      right: 10px;
+    }
 
     .about-copy {
       max-width: 640px;
@@ -579,7 +604,7 @@
         font-size: clamp(2.8rem, 14vw, 4.6rem);
       }
     }
-  
+
     .map-wrap {
       overflow: hidden;
       border-radius: 22px;
@@ -598,136 +623,206 @@
       line-height: 1.7;
     }
 
-  
-.payment-note {
-  margin-top: 1.2rem;
-  padding: 0.9rem 1rem;
-  border-radius: 12px;
-  background: rgba(91,31,46,0.08);
-  border-left: 3px solid var(--wine);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-.payment-note strong {
-  display: block;
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.12em;
-}
+    .payment-note {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: rgba(91,31,46,0.08);
+      border-left: 3px solid var(--wine);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
 
+    .payment-note strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.12em;
+    }
 
-.compact-section {
-  padding: 2.2rem 0 !important;
-}
+    .compact-section {
+      padding: 2.2rem 0 !important;
+    }
 
-.compact-heading {
-  margin-bottom: 1rem !important;
-}
+    .compact-heading {
+      margin-bottom: 1rem !important;
+    }
 
-.compact-hours {
-  max-width: 500px;
-  padding: 0.55rem 1rem !important;
-}
+    .compact-hours {
+      max-width: 500px;
+      padding: 0.55rem 1rem !important;
+    }
 
-.compact-hours div {
-  padding: 0.55rem 0 !important;
-  font-size: 0.95rem;
-}
+    .compact-hours div {
+      padding: 0.55rem 0 !important;
+      font-size: 0.95rem;
+    }
 
-.payment-note {
-  margin-top: 1rem;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
-  background: rgba(91,31,46,0.08);
-  border-left: 3px solid var(--wine);
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
+    .payment-note {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      background: rgba(91,31,46,0.08);
+      border-left: 3px solid var(--wine);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
 
-.payment-note strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.12em;
-}
+    .payment-note strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.12em;
+    }
 
-@media (max-width: 700px) {
-  .compact-section {
-    padding: 1.8rem 0 !important;
-  }
+    @media (max-width: 700px) {
+      .compact-section {
+        padding: 1.8rem 0 !important;
+      }
 
-  .compact-hours div {
-    padding: 0.5rem 0 !important;
-    font-size: 0.9rem;
-  }
-}
+      .compact-hours div {
+        padding: 0.5rem 0 !important;
+        font-size: 0.9rem;
+      }
+    }
 
+    .ultra-compact {
+      padding: 1.2rem 0 !important;
+    }
 
-.ultra-compact {
-  padding: 1.2rem 0 !important;
-}
+    .hours-inline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+  </style>
 
-.hours-inline {
-  font-size: 0.85rem;
-  color: var(--muted);
-  text-align: center;
-  letter-spacing: 0.05em;
-}
+  <style id="services-safe-mobile-layout">
+    @media (max-width: 768px) {
+      .service-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+      }
 
-</style>
+      .service-gallery-card img {
+        height: auto !important;
+        aspect-ratio: 3 / 4 !important;
+      }
 
+      .service-gallery-copy h3 {
+        font-size: 1.2rem !important;
+        line-height: 1.05 !important;
+      }
+    }
 
-
-
-
-
-
-
-
-
-<style id="services-safe-mobile-layout">
-@media (max-width: 768px) {
-  .service-gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 1rem !important;
-  }
-
-  .service-gallery-card img {
-    height: auto !important;
-    aspect-ratio: 3 / 4 !important;
-  }
-
-  .service-gallery-copy h3 {
-    font-size: 1.2rem !important;
-    line-height: 1.05 !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .service-gallery-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>
-
+    @media (max-width: 480px) {
+      .service-gallery-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTDT15Y6Y8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XTDT15Y6Y8');
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-XTDT15Y6Y8");
   </script>
 
+  <!-- Expandable price list -->
+  <style>
+    #mbuyi-price-list {
+      scroll-margin-top: 100px;
+    }
+
+    #mbuyi-price-list details {
+      max-width: 760px;
+      border: 1px solid rgba(91,31,46,.15);
+      border-radius: 20px;
+      background: rgba(255,255,255,.75);
+      overflow: hidden;
+    }
+
+    #mbuyi-price-list summary {
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      color: var(--wine);
+      font-weight: 600;
+    }
+
+    #mbuyi-price-list summary:focus-visible {
+      outline: 2px solid var(--wine);
+      outline-offset: -4px;
+    }
+
+    #mbuyi-price-list .price-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    #mbuyi-price-list h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--wine);
+      margin-top: 1.5rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(91,31,46,.15);
+    }
+
+    #mbuyi-price-list dl div {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid rgba(23,19,19,.06);
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    #mbuyi-price-list dt {
+      min-width: 0;
+    }
+
+    #mbuyi-price-list dd {
+      margin: 0;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    #mbuyi-price-list .price-note {
+      margin: 1.2rem 0;
+      font-size: .85rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      #mbuyi-price-list summary {
+        padding: 1rem;
+      }
+
+      #mbuyi-price-list .price-content {
+        padding: 0 1rem 1.2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="site-header" id="top">
     <a href="#top" class="brand">Nailed by <span>Mbuyi</span></a>
+
     <nav class="desktop-nav">
       <a href="#about">About</a>
       <a href="#featured">Featured Sets</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
+
     <a href="#booking" class="header-book">Book now</a>
   </header>
 
@@ -735,14 +830,17 @@
     <section class="hero">
       <div class="hero-media">
         <div class="hero-image-wrap">
-          <img src="assets/hero/hero-nails.jpg" alt="Editorial nail set by Nailed by Mbuyi" class="hero-image" />
+          <img
+            src="assets/hero/hero-nails.jpg"
+            alt="Editorial nail set by Nailed by Mbuyi"
+            class="hero-image"
+          />
         </div>
         <div class="hero-gradient"></div>
       </div>
 
       <div class="hero-overlay container">
-        <div class="hero-copy">
-</div>
+        <div class="hero-copy"></div>
 
         <div class="hero-side-card">
           <p class="side-label">Current mood</p>
@@ -775,11 +873,21 @@
         </div>
 
         <div class="featured-shell">
-          <button class="featured-arrow featured-arrow-left" type="button" aria-label="Scroll featured sets left" onclick="scrollFeatured(-1)">‹</button>
+          <button
+            class="featured-arrow featured-arrow-left"
+            type="button"
+            aria-label="Scroll featured sets left"
+            onclick="scrollFeatured(-1)"
+          >‹</button>
 
           <div class="featured-grid" id="featuredGrid">
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/featured/set-1.jpeg" alt="Featured set 1" />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="assets/featured/set-1.jpeg"
+                alt="Featured set 1"
+              />
               <div class="featured-content">
                 <p class="featured-meta">Pedicure</p>
                 <h3>Clean detail with polished structure</h3>
@@ -787,7 +895,12 @@
             </article>
 
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/featured/set-2.jpeg" alt="Featured set 2" />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="assets/featured/set-2.jpeg"
+                alt="Featured set 2"
+              />
               <div class="featured-content">
                 <p class="featured-meta">Manicure</p>
                 <h3>Refined finish with soft luxury</h3>
@@ -795,16 +908,25 @@
             </article>
 
             <article class="featured-card">
-              <img loading="lazy" decoding="async" src="assets/featured/set-3.jpeg" alt="Featured set 3" />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="assets/featured/set-3.jpeg"
+                alt="Featured set 3"
+              />
               <div class="featured-content">
                 <p class="featured-meta">Manicure</p>
                 <h3>Fresh, elegant, and beautifully finished</h3>
               </div>
             </article>
-
           </div>
 
-          <button class="featured-arrow featured-arrow-right" type="button" aria-label="Scroll featured sets right" onclick="scrollFeatured(1)">›</button>
+          <button
+            class="featured-arrow featured-arrow-right"
+            type="button"
+            aria-label="Scroll featured sets right"
+            onclick="scrollFeatured(1)"
+          >›</button>
         </div>
       </div>
     </section>
@@ -818,7 +940,12 @@
 
         <div class="service-gallery-grid">
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/gel-overlay-e200.jpg" alt="Gel overlay" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/gel-overlay-e200.jpg"
+              alt="Gel overlay"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E200</span>
               <h3>Gel overlay</h3>
@@ -826,7 +953,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/buff-and-shine-e150.jpeg" alt="Buff and shine E150" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/buff-and-shine-e150.jpeg"
+              alt="Buff and shine E150"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E150</span>
               <h3>Buff and shine</h3>
@@ -834,7 +966,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-e250.jpeg" alt="Rubberbase + colour E250" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/rubberbase-colour-e250.jpeg"
+              alt="Rubberbase + colour E250"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E250</span>
               <h3>Rubberbase + colour</h3>
@@ -842,7 +979,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/rubberbase-colour-medium-art-e270.jpg" alt="Rubberbase colour + medium art E270" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/rubberbase-colour-medium-art-e270.jpg"
+              alt="Rubberbase colour + medium art E270"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E270</span>
               <h3>Rubberbase colour + medium art</h3>
@@ -850,7 +992,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/advanced-nail-art-e290.jpg" alt="Advanced nail art E0" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/advanced-nail-art-e290.jpg"
+              alt="Advanced nail art E0"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E300</span>
               <h3>Advanced nail art</h3>
@@ -858,7 +1005,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/gel-tips-e250.jpg" alt="Gel+Tips Minimal E250" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/gel-tips-e250.jpg"
+              alt="Gel+Tips Minimal E250"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E250</span>
               <h3>Gel+Tips(Minimal)</h3>
@@ -866,7 +1018,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/mini-manicure-kids-e80-e120.jpeg" alt="Mini Manicure Kids E80-E120" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/mini-manicure-kids-e80-e120.jpeg"
+              alt="Mini Manicure Kids E80-E120"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E80–E120</span>
               <h3>Mini Manicure (Kids)</h3>
@@ -874,7 +1031,12 @@
           </article>
 
           <article class="service-gallery-card">
-            <img loading="lazy" decoding="async" src="assets/services/pedicure-plain-e150.jpg" alt="Pedicure (plain) E150" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/services/pedicure-plain-e150.jpg"
+              alt="Pedicure (plain) E150"
+            />
             <div class="service-gallery-copy">
               <span class="service-price-tag">E150</span>
               <h3>Pedicure (plain)</h3>
@@ -884,31 +1046,93 @@
       </div>
     </section>
 
+    <!-- Full price list -->
+    <section class="section" id="mbuyi-price-list">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Prices</p>
+          <h2>Your next <em>beautiful set</em>.</h2>
+        </div>
 
-<section class="section" id="payments">
-  <div class="container">
-    <div class="section-heading">
-      <p class="section-tag">Payments</p>
-      <h2>Secure your <em>appointment</em>.</h2>
-    </div>
+        <details>
+          <summary>View Full Price List</summary>
 
-    <div class="payment-box">
-      <p><strong>FNB Account</strong></p>
-      <p>Account Number: 63101791233</p>
-      <p>Name: NP Tsabedze</p>
+          <div class="price-content">
+            <h3>Gel</h3>
+            <dl>
+              <div><dt>Buff &amp; Shine</dt><dd>E180</dd></div>
+              <div><dt>Gel overlay</dt><dd>E230</dd></div>
+              <div><dt>Gel refill</dt><dd>E250</dd></div>
+              <div><dt>Gel + Tips</dt><dd>From E250</dd></div>
+            </dl>
 
-      <br>
+            <h3>Rubberbase</h3>
+            <dl>
+              <div><dt>Rubberbase (Plain)</dt><dd>E230</dd></div>
+              <div><dt>Rubberbase + Color</dt><dd>E250</dd></div>
+              <div><dt>Rubberbase color + Art</dt><dd>E270+</dd></div>
+              <div><dt>Polygel + Tips</dt><dd>E300</dd></div>
+            </dl>
 
-      <p><strong>Payment Methods</strong></p>
-      <p>Pay2Cell: +268 7816 6787</p>
-      <p>Unayo: +268 7816 6787</p>
+            <h3>Pedicure</h3>
+            <dl>
+              <div><dt>Pedicure (Plain)</dt><dd>E150</dd></div>
+              <div><dt>Pedicure + Art</dt><dd>E170</dd></div>
+              <div><dt>Pedicure Tips</dt><dd>E200</dd></div>
+            </dl>
 
-      
-    </div>
-  </div>
-</section>
+            <h3>Nail Extras</h3>
+            <dl>
+              <div><dt>Full French</dt><dd>E30</dd></div>
+              <div><dt>Cateye gel</dt><dd>E40</dd></div>
+              <div><dt>Chrome</dt><dd>E30</dd></div>
+              <div><dt>Extra Long</dt><dd>E50</dd></div>
+              <div><dt>3D nail art</dt><dd>E40</dd></div>
+              <div><dt>Ombrè</dt><dd>E30</dd></div>
+              <div><dt>Hand drawn designs</dt><dd>E30+</dd></div>
+            </dl>
 
+            <h3>Soak Off</h3>
+            <dl>
+              <div><dt>Gel</dt><dd>E50</dd></div>
+              <div><dt>Acrylic</dt><dd>E80</dd></div>
+              <div><dt>Foreign soak off</dt><dd>E70</dd></div>
+            </dl>
 
+            <p class="price-note">
+              All prices are in Emalangeni (E).
+              Prices marked “from” or “+” vary with your chosen design.
+              An E100 deposit is required to secure your booking.
+            </p>
+
+            <a href="#booking" class="btn btn-primary">
+              Book Your Appointment
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="payments">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Payments</p>
+          <h2>Secure your <em>appointment</em>.</h2>
+        </div>
+
+        <div class="payment-box">
+          <p><strong>FNB Account</strong></p>
+          <p>Account Number: 63101791233</p>
+          <p>Name: NP Tsabedze</p>
+
+          <br />
+
+          <p><strong>Payment Methods</strong></p>
+          <p>Pay2Cell: +268 7816 6787</p>
+          <p>Unayo: +268 7816 6787</p>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="policy">
       <div class="container">
@@ -918,18 +1142,36 @@
         </div>
 
         <div class="policy-box">
-          <p><strong>Deposit</strong><br />E100 required to secure all bookings. Must be paid within 48 hours.</p>
+          <p>
+            <strong>Deposit</strong><br />
+            E100 required to secure all bookings. Must be paid within 48 hours.
+          </p>
+
           <br />
-          <p><strong>Punctuality</strong><br />15-minute grace period. Late arrivals may be cancelled and deposit forfeited.</p>
+
+          <p>
+            <strong>Punctuality</strong><br />
+            15-minute grace period. Late arrivals may be cancelled and deposit forfeited.
+          </p>
+
           <br />
-          <p><strong>Rescheduling</strong><br />Must be done 48 hours in advance to retain deposit.</p>
+
+          <p>
+            <strong>Rescheduling</strong><br />
+            Must be done 48 hours in advance to retain deposit.
+          </p>
+
           <br />
-          <p><strong>Important</strong><br />No work over existing sets. Arrive with bare nails unless booked for refill or soak off. No unannounced plus ones.</p>
+
+          <p>
+            <strong>Important</strong><br />
+            No work over existing sets. Arrive with bare nails unless booked for refill or soak off.
+            No unannounced plus ones.
+          </p>
         </div>
       </div>
     </section>
 
-    
     <section class="section" id="map">
       <div class="container">
         <div class="section-heading">
@@ -955,25 +1197,26 @@
       </div>
     </section>
 
-
-    
-
-<section class="section ultra-compact" id="hours">
-  <div class="container">
-    <div class="hours-inline">
-      <strong>Hours: Monday – Friday 9:00 AM – 5:00 PM · Saturday 9:00 AM – 1:00 PM · Sunday Closed</strong>
-    </div>
-  </div>
-</section>
-
-
+    <section class="section ultra-compact" id="hours">
+      <div class="container">
+        <div class="hours-inline">
+          <strong>
+            Hours: Monday – Friday 9:00 AM – 5:00 PM ·
+            Saturday 9:00 AM – 1:00 PM · Sunday Closed
+          </strong>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="booking">
       <div class="container contact-grid">
         <div class="contact-copy">
           <p class="section-tag">Contact</p>
           <h2>Let’s create something <em>beautiful</em>.</h2>
-          <p>For booking questions, custom design requests, or payment proof, reach out directly on WhatsApp.</p>
+          <p>
+            For booking questions, custom design requests, or payment proof,
+            reach out directly on WhatsApp.
+          </p>
         </div>
 
         <div class="contact-card" id="contact">
@@ -981,19 +1224,28 @@
             <span>WhatsApp</span>
             <strong>78166787</strong>
           </div>
+
           <div class="contact-row">
             <span>Instagram</span>
             <strong>@nailed_by_mbuyi</strong>
           </div>
+
           <div class="contact-row">
             <span>Email</span>
             <strong>mbuyiselo202@gmail.com</strong>
           </div>
+
           <div class="contact-row">
             <span>Location</span>
             <strong>Mbabane, Opposite Eswatini Railway</strong>
           </div>
-          <a href="https://wa.me/26878166787" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top:1rem;">
+
+          <a
+            href="https://wa.me/26878166787"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            style="margin-top:1rem;">
             Book on WhatsApp
           </a>
         </div>
@@ -1003,29 +1255,232 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <a href="#top" class="brand footer-brand">Nailed by <span>Mbuyi</span></a>
+      <a href="#top" class="brand footer-brand">
+        Nailed by <span>Mbuyi</span>
+      </a>
       <p>Luxury nail care in Eswatini.</p>
     </div>
+
     <div class="site-signature">
       <span>Built by</span><strong>Magujwa</strong>
     </div>
   </footer>
 
+  <!-- Featured gallery scrolling -->
   <script>
     function scrollFeatured(direction) {
       const grid = document.getElementById("featuredGrid");
       if (!grid) return;
+
       const firstCard = grid.querySelector(".featured-card");
       const gap = 16;
-      const amount = firstCard ? Math.round(firstCard.getBoundingClientRect().width + gap) : 320;
-      grid.scrollBy({ left: amount * direction, behavior: "smooth" });
+      const amount = firstCard
+        ? Math.round(firstCard.getBoundingClientRect().width + gap)
+        : 320;
+
+      grid.scrollBy({
+        left: amount * direction,
+        behavior: "smooth"
+      });
     }
   </script>
 
+  <!-- Appointment request form -->
+  <script>
+    (() => {
+      "use strict";
 
+      function initBooking() {
+        const host = document.querySelector("#booking .contact-copy");
+        if (!host || document.getElementById("nbm-booking-form")) return;
 
+        const style = document.createElement("style");
+        style.textContent = `
+          #nbm-booking-form {
+            margin-top: 1.6rem;
+            padding: clamp(1rem, 3vw, 1.6rem);
+            background: rgba(255,255,255,.72);
+            border: 1px solid var(--line, #e6d8d8);
+            border-radius: 24px;
+            box-shadow: 0 12px 32px rgba(16,10,10,.06);
+          }
 
+          #nbm-booking-form h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin: 0 0 1.2rem;
+            color: var(--ink, #171313);
+          }
 
+          #nbm-booking-form .nbm-field {
+            display: grid;
+            gap: .5rem;
+            margin-bottom: 1rem;
+          }
 
+          #nbm-booking-form label {
+            color: var(--muted, #6b5d59);
+            font-size: .92rem;
+          }
+
+          #nbm-booking-form input,
+          #nbm-booking-form select {
+            box-sizing: border-box;
+            width: 100%;
+            min-width: 0;
+            min-height: 50px;
+            padding: .8rem .9rem;
+            border: 1px solid #d9cdcd;
+            border-radius: 10px;
+            background: #fff;
+            color: var(--ink, #171313);
+            font: inherit;
+            font-size: 16px;
+          }
+
+          #nbm-booking-form input:focus,
+          #nbm-booking-form select:focus {
+            outline: 2px solid var(--wine, #5b1f2e);
+            outline-offset: 2px;
+          }
+
+          #nbm-booking-form button {
+            width: 100%;
+            margin-top: .4rem;
+          }
+
+          #nbm-booking-form .nbm-note {
+            margin: .9rem 0 0;
+            font-size: .82rem;
+            line-height: 1.6;
+            color: var(--muted, #6b5d59);
+          }
+        `;
+        document.head.appendChild(style);
+
+        const form = document.createElement("form");
+        form.id = "nbm-booking-form";
+
+        form.innerHTML = `
+          <h3>Book your appointment</h3>
+
+          <div class="nbm-field">
+            <label for="nbm-name">Full name</label>
+            <input
+              id="nbm-name"
+              name="fullName"
+              autocomplete="name"
+              maxlength="100"
+              required
+            >
+          </div>
+
+          <div class="nbm-field">
+            <label for="nbm-email">Email</label>
+            <input
+              id="nbm-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              maxlength="254"
+              required
+            >
+          </div>
+
+          <div class="nbm-field">
+            <label for="nbm-phone">Phone number</label>
+            <input
+              id="nbm-phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              maxlength="30"
+              required
+            >
+          </div>
+
+          <div class="nbm-field">
+            <label for="nbm-service">Select service</label>
+            <select id="nbm-service" name="service" required>
+              <option value="" disabled selected>Choose a service</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Book Appointment
+          </button>
+
+          <p class="nbm-note" id="nbm-booking-note">
+            This opens WhatsApp with your details.
+            Tap Send to request your appointment.
+            Mbuyi will arrange your date and time and confirm availability.
+            An E100 deposit is required to secure your booking.
+          </p>
+        `;
+
+        form.setAttribute("aria-describedby", "nbm-booking-note");
+
+        const select = form.querySelector("select");
+        const services = Array.from(
+          document.querySelectorAll(".service-gallery-copy h3")
+        ).map(el => el.textContent.trim()).filter(Boolean);
+
+        const defaults = [
+          "Gel overlay",
+          "Buff and shine",
+          "Rubberbase + colour",
+          "Rubberbase colour + medium art",
+          "Advanced nail art",
+          "Gel+Tips(Minimal)",
+          "Mini Manicure (Kids)",
+          "Pedicure (plain)"
+        ];
+
+        [...new Set(services.length ? services : defaults)].forEach(service => {
+          const option = document.createElement("option");
+          option.value = service;
+          option.textContent = service;
+          select.appendChild(option);
+        });
+
+        form.addEventListener("submit", event => {
+          event.preventDefault();
+
+          for (const input of form.querySelectorAll("input")) {
+            input.value = input.value.trim();
+          }
+
+          if (!form.reportValidity()) return;
+
+          const data = new FormData(form);
+          const message = [
+            "Hello Mbuyi, I would like to request an appointment.",
+            "",
+            `Full name: ${data.get("fullName")}`,
+            `Email: ${data.get("email")}`,
+            `Phone: ${data.get("phone")}`,
+            `Service: ${data.get("service")}`,
+            "",
+            "Please let me know your available dates and times and how to secure my booking."
+          ].join("\n");
+
+          window.location.assign(
+            "https://wa.me/26878166787?text=" + encodeURIComponent(message)
+          );
+        });
+
+        host.appendChild(form);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initBooking, {
+          once: true
+        });
+      } else {
+        initBooking();
+      }
+    })();
+  </script>
 </body>
 </html>
