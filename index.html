@@ -1415,6 +1415,12 @@
     required
   >
 </div>
+<div class="nbm-field">
+  <label for="nbm-time">Preferred time slot</label>
+  <select id="nbm-time" name="time" required>
+    <option value="" disabled selected>Choose a time slot</option>
+  </select>
+</div>
           <button type="submit" class="btn btn-primary">
             Book Appointment
           </button>
@@ -1459,8 +1465,69 @@ function validateBookingDate() {
 
 validateBookingDate();
 dateInput.addEventListener("change", validateBookingDate);
+const timeSelect = form.querySelector("#nbm-time");
 
-        const select = form.querySelector("select");
+function updateTimeSlots() {
+  const previousTime = timeSelect.value;
+
+  timeSelect.innerHTML =
+    '<option value="" disabled selected>Choose a time slot</option>';
+
+  if (!dateInput.value) {
+    timeSelect.disabled = true;
+    return;
+  }
+
+  const day = new Date(
+    dateInput.value + "T12:00:00+02:00"
+  ).getUTCDay();
+
+  if (day === 0) {
+    timeSelect.disabled = true;
+    return;
+  }
+
+  timeSelect.disabled = false;
+
+  // Half-hour requests, ending 30 minutes before closing.
+  const lastSlot = day === 6 ? 12 * 60 + 30 : 16 * 60 + 30;
+
+  for (let minutes = 9 * 60; minutes <= lastSlot; minutes += 30) {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+
+    const time =
+      String(hours).padStart(2, "0") + ":" +
+      String(mins).padStart(2, "0");
+
+    const requested = new Date(
+      dateInput.value + "T" + time + ":00+02:00"
+    );
+
+    if (requested <= new Date()) continue;
+
+    const option = document.createElement("option");
+    option.value = time;
+    option.textContent = time;
+    timeSelect.appendChild(option);
+  }
+
+  if (Array.from(timeSelect.options).some(
+    option => option.value === previousTime && previousTime !== ""
+  )) {
+    timeSelect.value = previousTime;
+  }
+
+  timeSelect.setCustomValidity(
+    timeSelect.options.length === 1
+      ? "No future time slots remain. Please choose another date."
+      : ""
+  );
+}
+
+dateInput.addEventListener("change", updateTimeSlots);
+updateTimeSlots();
+        const select = form.querySelector("#nbm-service");
         const services = Array.from(
           document.querySelectorAll(".service-gallery-copy h3")
         ).map(el => el.textContent.trim()).filter(Boolean);
@@ -1492,6 +1559,7 @@ dateInput.addEventListener("change", validateBookingDate);
           }
 
           validateBookingDate();
+updateTimeSlots();
 if (!form.reportValidity()) return;
 
           const data = new FormData(form);
@@ -1503,6 +1571,7 @@ if (!form.reportValidity()) return;
             `Phone: ${data.get("phone")}`,
             `Service: ${data.get("service")}`,
             `Preferred date: ${data.get("date")}`,
+            `Preferred time: ${data.get("time")} (Eswatini time)`,
             "",
             "Please let me know your available dates and times and how to secure my booking."
           ].join("\n");
