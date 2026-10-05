@@ -1604,10 +1604,29 @@
         '<option value="" disabled selected>Choose a time slot</option>';
 
       timeSelect.setCustomValidity("");
-      timeSelect.disabled = true;
+timeSelect.disabled = false;
 
-      if (!dateInput.value || !dateInput.validity.valid) return;
+if (!dateInput.value) {
+  const slots = [
+    ["09:00", "9 AM"],
+    ["11:00", "11 AM"],
+    ["13:00", "1 PM"],
+    ["15:00", "3 PM"],
+    ["17:00", "5 PM"]
+  ];
 
+  slots.forEach(([time, label]) => {
+    const option = document.createElement("option");
+    option.value = time;
+    option.textContent = label;
+    timeSelect.appendChild(option);
+  });
+
+  timeSelect.value = previousTime || "";
+  return;
+}
+
+if (!dateInput.validity.valid) return;
       const day = new Date(
         dateInput.value + "T12:00:00+02:00"
       ).getUTCDay();
