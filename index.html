@@ -1432,6 +1432,14 @@
     placeholder="Describe your preferred design, nail length, colour or any extras."
   ></textarea>
 </div>
+          <p class="nbm-note">
+  Have a nail inspiration photo? Please attach it in WhatsApp
+  after sending your booking request.
+</p>
+
+<button type="submit" class="btn btn-primary">
+  Book Appointment
+</button>
           <button type="submit" class="btn btn-primary">
             Book Appointment
           </button>
@@ -1588,6 +1596,7 @@ if (!form.reportValidity()) return;
             `Preferred date: ${data.get("date")}`,
             `Preferred time: ${data.get("time")} (Eswatini time)`,
             "",
+            "If I have a nail inspiration photo, I will attach it here in WhatsApp.",
             "Please let me know your available dates and times and how to secure my booking."
           ].join("\n");
 
