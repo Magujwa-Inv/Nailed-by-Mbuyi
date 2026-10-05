@@ -1429,7 +1429,7 @@
             This opens WhatsApp with your details.
             Tap Send to request your appointment.
             Mbuyi will arrange your date and time and confirm availability.
-            An E100 deposit is required to secure your booking.
+            A E100 deposit is required to secure your booking.
           </p>
         `;
 
@@ -1473,6 +1473,8 @@ function updateTimeSlots() {
   timeSelect.innerHTML =
     '<option value="" disabled selected>Choose a time slot</option>';
 
+  timeSelect.setCustomValidity("");
+
   if (!dateInput.value) {
     timeSelect.disabled = true;
     return;
@@ -1489,40 +1491,41 @@ function updateTimeSlots() {
 
   timeSelect.disabled = false;
 
-  // Half-hour requests, ending 30 minutes before closing.
-  const lastSlot = day === 6 ? 12 * 60 + 30 : 16 * 60 + 30;
+  const slots = [
+    ["09:00", "9 AM"],
+    ["11:00", "11 AM"],
+    ["13:00", "1 PM"],
+    ["15:00", "3 PM"],
+    ["17:00", "5 PM"]
+  ];
 
-  for (let minutes = 9 * 60; minutes <= lastSlot; minutes += 30) {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-
-    const time =
-      String(hours).padStart(2, "0") + ":" +
-      String(mins).padStart(2, "0");
+  slots.forEach(function ([time, label]) {
+    // Saturdays: 9 AM and 11 AM only, based on 1 PM closing.
+    if (day === 6 && time >= "13:00") return;
 
     const requested = new Date(
       dateInput.value + "T" + time + ":00+02:00"
     );
 
-    if (requested <= new Date()) continue;
+    if (requested <= new Date()) return;
 
     const option = document.createElement("option");
     option.value = time;
-    option.textContent = time;
+    option.textContent = label;
     timeSelect.appendChild(option);
-  }
+  });
 
-  if (Array.from(timeSelect.options).some(
-    option => option.value === previousTime && previousTime !== ""
+  if (previousTime && Array.from(timeSelect.options).some(
+    option => option.value === previousTime
   )) {
     timeSelect.value = previousTime;
   }
 
-  timeSelect.setCustomValidity(
-    timeSelect.options.length === 1
-      ? "No future time slots remain. Please choose another date."
-      : ""
-  );
+  if (timeSelect.options.length === 1) {
+    timeSelect.setCustomValidity(
+      "No time slots remain. Please choose another date."
+    );
+  }
 }
 
 dateInput.addEventListener("change", updateTimeSlots);
