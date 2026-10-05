@@ -1406,7 +1406,15 @@
               <option value="" disabled selected>Choose a service</option>
             </select>
           </div>
-
+          <div class="nbm-field">
+  <label for="nbm-date">Preferred appointment date</label>
+  <input
+    id="nbm-date"
+    name="date"
+    type="date"
+    required
+  >
+</div>
           <button type="submit" class="btn btn-primary">
             Book Appointment
           </button>
@@ -1420,6 +1428,37 @@
         `;
 
         form.setAttribute("aria-describedby", "nbm-booking-note");
+        const dateInput = form.querySelector("#nbm-date");
+
+function validateBookingDate() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Africa/Mbabane",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date());
+
+  const value = type => parts.find(p => p.type === type).value;
+  const today = `${value("year")}-${value("month")}-${value("day")}`;
+
+  dateInput.min = today;
+  dateInput.setCustomValidity("");
+
+  if (!dateInput.value) return;
+
+  if (dateInput.value < today) {
+    dateInput.setCustomValidity("Please choose today or a future date.");
+  } else if (
+    new Date(dateInput.value + "T12:00:00+02:00").getUTCDay() === 0
+  ) {
+    dateInput.setCustomValidity(
+      "The salon is closed on Sundays. Please choose another date."
+    );
+  }
+}
+
+validateBookingDate();
+dateInput.addEventListener("change", validateBookingDate);
 
         const select = form.querySelector("select");
         const services = Array.from(
@@ -1452,7 +1491,8 @@
             input.value = input.value.trim();
           }
 
-          if (!form.reportValidity()) return;
+          validateBookingDate();
+if (!form.reportValidity()) return;
 
           const data = new FormData(form);
           const message = [
@@ -1462,6 +1502,7 @@
             `Email: ${data.get("email")}`,
             `Phone: ${data.get("phone")}`,
             `Service: ${data.get("service")}`,
+            `Preferred date: ${data.get("date")}`,
             "",
             "Please let me know your available dates and times and how to secure my booking."
           ].join("\n");
