@@ -1477,7 +1477,7 @@ dateInput.addEventListener("change", validateBookingDate);
           "Soak off",
         ];
 
-        [...new Set(services.length ? services : defaults)].forEach(service => {
+        [...new Set(defaults)].forEach(service => {
           const option = document.createElement("option");
           option.value = service;
           option.textContent = service;
