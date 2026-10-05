@@ -1403,9 +1403,18 @@
 
           <div class="nbm-field">
             <label for="nbm-service">Select service</label>
-            <select id="nbm-service" name="service" required>
-              <option value="" disabled selected>Choose a service</option>
-            </select>
+           <select
+  id="nbm-service"
+  name="service"
+  multiple
+  size="5"
+  required
+></select>
+
+<small>
+  Choose one or more services. On a computer, hold Command
+  (Mac) or Ctrl (Windows) while selecting.
+</small>
           </div>
           <div class="nbm-field">
   <label for="nbm-date">Preferred appointment date</label>
@@ -1591,7 +1600,7 @@ if (!form.reportValidity()) return;
             `Full name: ${data.get("fullName")}`,
             `Email: ${data.get("email")}`,
             `Phone: ${data.get("phone")}`,
-            `Service: ${data.get("service")}`,
+            `Services: ${data.getAll("service").join(", ")}`,
             `Service details: ${String(data.get("details") || "").trim() || "Not specified"}`,
             `Preferred date: ${data.get("date")}`,
             `Preferred time: ${data.get("time")} (Eswatini time)`,
