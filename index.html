@@ -1285,346 +1285,448 @@
     }
   </script>
 
-  <!-- Appointment request form -->
-  <script>
-    (() => {
-      "use strict";
+ <!-- Appointment request form -->
+<script>
+(() => {
+  "use strict";
 
-      function initBooking() {
-        const host = document.querySelector("#booking .contact-copy");
-        if (!host || document.getElementById("nbm-booking-form")) return;
+  function initBooking() {
+    const host = document.querySelector("#booking .contact-copy");
+    if (!host || document.getElementById("nbm-booking-form")) return;
 
-        const style = document.createElement("style");
-        style.textContent = `
-          #nbm-booking-form {
-            margin-top: 1.6rem;
-            padding: clamp(1rem, 3vw, 1.6rem);
-            background: rgba(255,255,255,.72);
-            border: 1px solid var(--line, #e6d8d8);
-            border-radius: 24px;
-            box-shadow: 0 12px 32px rgba(16,10,10,.06);
-          }
-
-          #nbm-booking-form h3 {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 2rem;
-            font-weight: 500;
-            margin: 0 0 1.2rem;
-            color: var(--ink, #171313);
-          }
-
-          #nbm-booking-form .nbm-field {
-            display: grid;
-            gap: .5rem;
-            margin-bottom: 1rem;
-          }
-
-          #nbm-booking-form label {
-            color: var(--muted, #6b5d59);
-            font-size: .92rem;
-          }
-
-         #nbm-booking-form input,
-#nbm-booking-form select,
-#nbm-booking-form textarea {
-            box-sizing: border-box;
-            width: 100%;
-            min-width: 0;
-            min-height: 50px;
-            padding: .8rem .9rem;
-            border: 1px solid #d9cdcd;
-            border-radius: 10px;
-            background: #fff;
-            color: var(--ink, #171313);
-            font: inherit;
-            font-size: 16px;
-          }
-#nbm-booking-form input:focus,
-#nbm-booking-form select:focus,
-#nbm-booking-form textarea:focus {
-            outline: 2px solid var(--wine, #5b1f2e);
-            outline-offset: 2px;
-          }
-
-          #nbm-booking-form button {
-            width: 100%;
-            margin-top: .4rem;
-          }
-
-          #nbm-booking-form .nbm-note {
-            margin: .9rem 0 0;
-            font-size: .82rem;
-            line-height: 1.6;
-            color: var(--muted, #6b5d59);
-          }
-        `;
-        document.head.appendChild(style);
-
-        const form = document.createElement("form");
-        form.id = "nbm-booking-form";
-
-        form.innerHTML = `
-          <h3>Book your appointment</h3>
-
-          <div class="nbm-field">
-            <label for="nbm-name">Full name</label>
-            <input
-              id="nbm-name"
-              name="fullName"
-              autocomplete="name"
-              maxlength="100"
-              required
-            >
-          </div>
-
-          <div class="nbm-field">
-            <label for="nbm-email">Email</label>
-            <input
-              id="nbm-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              maxlength="254"
-              required
-            >
-          </div>
-
-          <div class="nbm-field">
-            <label for="nbm-phone">Phone number</label>
-            <input
-              id="nbm-phone"
-              name="phone"
-              type="tel"
-              autocomplete="tel"
-              maxlength="30"
-              required
-            >
-          </div>
-
-          <div class="nbm-field">
-            <label for="nbm-service">Select service</label>
-           <select
-  id="nbm-service"
-  name="service"
-  multiple
-  size="5"
-  required
-></select>
-
-<small>
-  Choose one or more services. On a computer, hold Command
-  (Mac) or Ctrl (Windows) while selecting.
-</small>
-          </div>
-          <div class="nbm-field">
-  <label for="nbm-date">Preferred appointment date</label>
-  <input
-    id="nbm-date"
-    name="date"
-    type="date"
-    required
-  >
-</div>
-<div class="nbm-field">
-  <label for="nbm-time">Preferred time slot</label>
-  <select id="nbm-time" name="time" required>
-    <option value="" disabled selected>Choose a time slot</option>
-  </select>
-</div>
-          <div class="nbm-field">
-  <label for="nbm-details">Specify type of service needed</label>
-  <textarea
-    id="nbm-details"
-    name="details"
-    rows="4"
-    maxlength="1000"
-    placeholder="Describe your preferred design, nail length, colour or any extras."
-  ></textarea>
-</div>
-          <p class="nbm-note">
-  Have a nail inspiration photo? Please attach it in WhatsApp
-  after sending your booking request.
-</p>
-
-<button type="submit" class="btn btn-primary">
-  Book Appointment
-</button>
-          <button type="submit" class="btn btn-primary">
-            Book Appointment
-          </button>
-
-          <p class="nbm-note" id="nbm-booking-note">
-            This opens WhatsApp with your details.
-            Tap Send to request your appointment.
-            Mbuyi will arrange your date and time and confirm availability.
-            A deposit of E100 is required to secure your booking.
-          </p>
-        `;
-
-        form.setAttribute("aria-describedby", "nbm-booking-note");
-        const dateInput = form.querySelector("#nbm-date");
-
-function validateBookingDate() {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Africa/Mbabane",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit"
-  }).formatToParts(new Date());
-
-  const value = type => parts.find(p => p.type === type).value;
-  const today = `${value("year")}-${value("month")}-${value("day")}`;
-
-  dateInput.min = today;
-  dateInput.setCustomValidity("");
-
-  if (!dateInput.value) return;
-
-  if (dateInput.value < today) {
-    dateInput.setCustomValidity("Please choose today or a future date.");
-  } else if (
-    new Date(dateInput.value + "T12:00:00+02:00").getUTCDay() === 0
-  ) {
-    dateInput.setCustomValidity(
-      "The salon is closed on Sundays. Please choose another date."
-    );
-  }
-}
-
-validateBookingDate();
-dateInput.addEventListener("change", validateBookingDate);
-const timeSelect = form.querySelector("#nbm-time");
-
-function updateTimeSlots() {
-  const previousTime = timeSelect.value;
-
-  timeSelect.innerHTML =
-    '<option value="" disabled selected>Choose a time slot</option>';
-
-  timeSelect.setCustomValidity("");
-
-  if (!dateInput.value) {
-    timeSelect.disabled = true;
-    return;
-  }
-
-  const day = new Date(
-    dateInput.value + "T12:00:00+02:00"
-  ).getUTCDay();
-
-  if (day === 0) {
-    timeSelect.disabled = true;
-    return;
-  }
-
-  timeSelect.disabled = false;
-
-  const slots = [
-    ["09:00", "9 AM"],
-    ["11:00", "11 AM"],
-    ["13:00", "1 PM"],
-    ["15:00", "3 PM"],
-    ["17:00", "5 PM"]
-  ];
-
-  slots.forEach(function ([time, label]) {
-    // Saturdays: 9 AM and 11 AM only, based on 1 PM closing.
-    if (day === 6 && time >= "13:00") return;
-
-    const requested = new Date(
-      dateInput.value + "T" + time + ":00+02:00"
-    );
-
-    if (requested <= new Date()) return;
-
-    const option = document.createElement("option");
-    option.value = time;
-    option.textContent = label;
-    timeSelect.appendChild(option);
-  });
-
-  if (previousTime && Array.from(timeSelect.options).some(
-    option => option.value === previousTime
-  )) {
-    timeSelect.value = previousTime;
-  }
-
-  if (timeSelect.options.length === 1) {
-    timeSelect.setCustomValidity(
-      "No time slots remain. Please choose another date."
-    );
-  }
-}
-
-dateInput.addEventListener("change", updateTimeSlots);
-updateTimeSlots();
-        const select = form.querySelector("#nbm-service");
-        const services = Array.from(
-          document.querySelectorAll(".service-gallery-copy h3")
-        ).map(el => el.textContent.trim()).filter(Boolean);
-
-        const defaults = [
-          "Gel overlay",
-          "Buff and shine",
-          "Gel with tips",
-          "Rubberbase",
-          "Polygel on natural nails",
-          "Polygel Tips",
-          "Kids Manicure",
-          "Pedicure",
-          "Soak off",
-        ];
-
-        [...new Set(defaults)].forEach(service => {
-          const option = document.createElement("option");
-          option.value = service;
-          option.textContent = service;
-          select.appendChild(option);
-        });
-
-        form.addEventListener("submit", event => {
-          event.preventDefault();
-
-          for (const input of form.querySelectorAll("input")) {
-            input.value = input.value.trim();
-          }
-
-          validateBookingDate();
-updateTimeSlots();
-if (!form.reportValidity()) return;
-
-          const data = new FormData(form);
-          const message = [
-            "Hello Mbuyi, I would like to request an appointment.",
-            "",
-            `Full name: ${data.get("fullName")}`,
-            `Email: ${data.get("email")}`,
-            `Phone: ${data.get("phone")}`,
-            `Services: ${data.getAll("service").join(", ")}`,
-            `Service details: ${String(data.get("details") || "").trim() || "Not specified"}`,
-            `Preferred date: ${data.get("date")}`,
-            `Preferred time: ${data.get("time")} (Eswatini time)`,
-            "",
-            "If I have a nail inspiration photo, I will attach it here in WhatsApp.",
-            "Please let me know your available dates and times and how to secure my booking."
-          ].join("\n");
-
-          window.location.assign(
-            "https://wa.me/26878166787?text=" + encodeURIComponent(message)
-          );
-        });
-
-        host.appendChild(form);
+    const style = document.createElement("style");
+    style.textContent = `
+      #nbm-booking-form {
+        margin-top: 1.6rem;
+        padding: clamp(1rem, 3vw, 1.6rem);
+        background: rgba(255,255,255,.72);
+        border: 1px solid var(--line, #e6d8d8);
+        border-radius: 24px;
+        box-shadow: 0 12px 32px rgba(16,10,10,.06);
       }
 
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initBooking, {
-          once: true
-        });
-      } else {
-        initBooking();
+      #nbm-booking-form h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 1.2rem;
       }
-    })();
-  </script>
+
+      #nbm-booking-form .nbm-field {
+        display: grid;
+        gap: .5rem;
+        margin-bottom: 1rem;
+      }
+
+      #nbm-booking-form label {
+        color: var(--muted, #6b5d59);
+        font-size: .92rem;
+      }
+
+      #nbm-booking-form input,
+      #nbm-booking-form select,
+      #nbm-booking-form textarea {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        min-height: 50px;
+        padding: .8rem .9rem;
+        border: 1px solid #d9cdcd;
+        border-radius: 10px;
+        background: #fff;
+        color: var(--ink, #171313);
+        font: inherit;
+        font-size: 16px;
+      }
+
+      #nbm-booking-form textarea {
+        resize: vertical;
+      }
+
+      #nbm-booking-form input:focus,
+      #nbm-booking-form select:focus,
+      #nbm-booking-form textarea:focus {
+        outline: 2px solid var(--wine, #5b1f2e);
+        outline-offset: 2px;
+      }
+
+      #nbm-booking-form .nbm-submit {
+        width: 100%;
+        margin-top: .8rem;
+      }
+
+      #nbm-booking-form .nbm-note {
+        margin: .9rem 0 0;
+        font-size: .82rem;
+        line-height: 1.6;
+        color: var(--muted, #6b5d59);
+      }
+
+      #nbm-booking-form .nbm-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+      }
+
+      #nbm-booking-form .nbm-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        max-width: 100%;
+        padding: .5rem .8rem;
+        min-height: 44px;
+        border: 1px solid rgba(91,31,46,.15);
+        border-radius: 18px;
+        background: rgba(91,31,46,.08);
+        color: var(--wine, #5b1f2e);
+        font: inherit;
+        font-size: .85rem;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      #nbm-booking-form .nbm-tag span:first-child {
+        overflow-wrap: anywhere;
+      }
+
+      #nbm-booking-form .nbm-error {
+        color: #a42035;
+        font-size: .85rem;
+      }
+
+      #nbm-booking-form [hidden] {
+        display: none;
+      }
+    `;
+    document.head.appendChild(style);
+
+    const form = document.createElement("form");
+    form.id = "nbm-booking-form";
+
+    // Handle validation in the submit handler so date/time checks
+    // refresh even if the customer has left the page open.
+    form.noValidate = true;
+    form.setAttribute("aria-describedby", "nbm-booking-note");
+
+    form.innerHTML = `
+      <h3>Book your appointment</h3>
+
+      <div class="nbm-field">
+        <label for="nbm-name">Full name</label>
+        <input id="nbm-name" name="fullName"
+          autocomplete="name" maxlength="100" required>
+      </div>
+
+      <div class="nbm-field">
+        <label for="nbm-email">Email</label>
+        <input id="nbm-email" name="email" type="email"
+          autocomplete="email" maxlength="254" required>
+      </div>
+
+      <div class="nbm-field">
+        <label for="nbm-phone">Phone number</label>
+        <input id="nbm-phone" name="phone" type="tel"
+          autocomplete="tel" maxlength="30" required>
+      </div>
+
+      <div class="nbm-field">
+        <label for="nbm-service">Select services</label>
+
+        <select id="nbm-service"
+          aria-describedby="nbm-service-help nbm-service-error">
+        </select>
+
+        <small id="nbm-service-help">
+          Choose a service, then open the dropdown again to add another.
+          Tap a selected service to remove it.
+        </small>
+
+        <div id="nbm-selected-services" class="nbm-tags"></div>
+
+        <span id="nbm-service-status" role="status"
+          aria-live="polite"></span>
+
+        <span id="nbm-service-error"
+          class="nbm-error" role="alert" hidden>
+          Please select at least one service.
+        </span>
+      </div>
+
+      <div class="nbm-field">
+        <label for="nbm-date">Preferred appointment date</label>
+        <input id="nbm-date" name="date" type="date" required>
+      </div>
+
+      <div class="nbm-field">
+        <label for="nbm-time">Preferred time slot</label>
+        <select id="nbm-time" name="time" required></select>
+      </div>
+
+      <div class="nbm-field">
+        <label for="nbm-details">Specify type of service needed</label>
+        <textarea id="nbm-details" name="details" rows="4"
+          maxlength="1000"
+          placeholder="Describe your preferred design, nail length, colour or any extras."></textarea>
+      </div>
+
+      <p class="nbm-note">
+        Have a nail inspiration photo? Please attach it in WhatsApp
+        after sending your booking request.
+      </p>
+
+      <button type="submit" class="btn btn-primary nbm-submit">
+        Book Appointment
+      </button>
+
+      <p class="nbm-note" id="nbm-booking-note">
+        This opens WhatsApp with your details.
+        Tap Send to request your appointment.
+        Mbuyi will confirm your requested date and time.
+        A deposit of E100 is required to secure your booking.
+      </p>
+    `;
+
+    const serviceSelect = form.querySelector("#nbm-service");
+    const tags = form.querySelector("#nbm-selected-services");
+    const serviceError = form.querySelector("#nbm-service-error");
+    const serviceStatus = form.querySelector("#nbm-service-status");
+    const dateInput = form.querySelector("#nbm-date");
+    const timeSelect = form.querySelector("#nbm-time");
+
+    const selectedServices = new Set();
+
+    const services = [
+      "Gel overlay",
+      "Buff and shine",
+      "Gel with tips",
+      "Rubberbase",
+      "Polygel on natural nails",
+      "Polygel Tips",
+      "Kids Manicure",
+      "Pedicure",
+      "Soak off"
+    ];
+
+    function renderServices() {
+      serviceSelect.replaceChildren();
+
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent =
+        selectedServices.size === services.length
+          ? "All services selected"
+          : "Choose a service to add";
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      serviceSelect.appendChild(placeholder);
+
+      services.forEach(service => {
+        if (selectedServices.has(service)) return;
+
+        const option = document.createElement("option");
+        option.value = service;
+        option.textContent = service;
+        serviceSelect.appendChild(option);
+      });
+
+      serviceSelect.disabled =
+        selectedServices.size === services.length;
+
+      tags.replaceChildren();
+
+      selectedServices.forEach(service => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "nbm-tag";
+        button.setAttribute("aria-label", "Remove " + service);
+
+        const text = document.createElement("span");
+        text.textContent = service;
+
+        const remove = document.createElement("span");
+        remove.textContent = "×";
+        remove.setAttribute("aria-hidden", "true");
+
+        button.append(text, remove);
+
+        button.addEventListener("click", () => {
+          selectedServices.delete(service);
+          renderServices();
+          serviceStatus.textContent = service + " removed.";
+          serviceSelect.focus();
+        });
+
+        tags.appendChild(button);
+      });
+
+      if (selectedServices.size) {
+        serviceError.hidden = true;
+        serviceSelect.removeAttribute("aria-invalid");
+      }
+    }
+
+    serviceSelect.addEventListener("change", () => {
+      const service = serviceSelect.value;
+      if (!service) return;
+
+      selectedServices.add(service);
+      renderServices();
+      serviceStatus.textContent = service + " added.";
+    });
+
+    function validateBookingDate() {
+      const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Africa/Mbabane",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(new Date());
+
+      const value = type => parts.find(p => p.type === type).value;
+      const today = `${value("year")}-${value("month")}-${value("day")}`;
+
+      dateInput.min = today;
+      dateInput.setCustomValidity("");
+
+      if (!dateInput.value) return;
+
+      const day = new Date(
+        dateInput.value + "T12:00:00+02:00"
+      ).getUTCDay();
+
+      if (dateInput.value < today) {
+        dateInput.setCustomValidity(
+          "Please choose today or a future date."
+        );
+      } else if (day === 0) {
+        dateInput.setCustomValidity(
+          "The salon is closed on Sundays. Please choose another date."
+        );
+      }
+    }
+
+    function updateTimeSlots() {
+      const previousTime = timeSelect.value;
+
+      timeSelect.innerHTML =
+        '<option value="" disabled selected>Choose a time slot</option>';
+
+      timeSelect.setCustomValidity("");
+      timeSelect.disabled = true;
+
+      if (!dateInput.value || !dateInput.validity.valid) return;
+
+      const day = new Date(
+        dateInput.value + "T12:00:00+02:00"
+      ).getUTCDay();
+
+      timeSelect.disabled = false;
+
+      const slots = [
+        ["09:00", "9 AM"],
+        ["11:00", "11 AM"],
+        ["13:00", "1 PM"],
+        ["15:00", "3 PM"],
+        ["17:00", "5 PM"]
+      ];
+
+      slots.forEach(([time, label]) => {
+        // Saturday closes at 1 PM.
+        if (day === 6 && time >= "13:00") return;
+
+        const requested = new Date(
+          dateInput.value + "T" + time + ":00+02:00"
+        );
+
+        if (requested <= new Date()) return;
+
+        const option = document.createElement("option");
+        option.value = time;
+        option.textContent = label;
+        timeSelect.appendChild(option);
+      });
+
+      if (
+        previousTime &&
+        Array.from(timeSelect.options).some(
+          option => option.value === previousTime
+        )
+      ) {
+        timeSelect.value = previousTime;
+      }
+
+      if (timeSelect.options.length === 1) {
+        timeSelect.setCustomValidity(
+          "No time slots remain. Please choose another date."
+        );
+      }
+    }
+
+    dateInput.addEventListener("change", () => {
+      validateBookingDate();
+      updateTimeSlots();
+    });
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      for (const input of form.querySelectorAll(
+        'input:not([type="date"])'
+      )) {
+        input.value = input.value.trim();
+      }
+
+      validateBookingDate();
+      updateTimeSlots();
+
+      if (!selectedServices.size) {
+        serviceError.hidden = false;
+        serviceSelect.setAttribute("aria-invalid", "true");
+        serviceSelect.focus();
+        return;
+      }
+
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const timeLabel =
+        timeSelect.options[timeSelect.selectedIndex].textContent;
+
+      const message = [
+        "Hello Mbuyi, I would like to request an appointment.",
+        "",
+        `Full name: ${data.get("fullName")}`,
+        `Email: ${data.get("email")}`,
+        `Phone: ${data.get("phone")}`,
+        `Services: ${Array.from(selectedServices).join(", ")}`,
+        `Service details: ${String(data.get("details") || "").trim() || "Not specified"}`,
+        `Preferred date: ${data.get("date")}`,
+        `Preferred time: ${timeLabel} (Eswatini time)`,
+        "",
+        "If I have a nail inspiration photo, I will attach it here in WhatsApp.",
+        "Please confirm availability and how to secure my booking."
+      ].join("\n");
+
+      window.location.assign(
+        "https://wa.me/26878166787?text=" +
+        encodeURIComponent(message)
+      );
+    });
+
+    renderServices();
+    validateBookingDate();
+    updateTimeSlots();
+    host.appendChild(form);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initBooking, {
+      once: true
+    });
+  } else {
+    initBooking();
+  }
+})();
+</script>
 </body>
 </html>
